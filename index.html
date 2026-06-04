@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S-VYASA Library Management System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<h1>📚 S-VYASA</h1>
+
+<ul>
+
+<li>
+<button onclick="showPage('dashboard')">
+Dashboard
+</button>
+</li>
+
+<li>
+<button onclick="showPage('library')">
+Library
+</button>
+</li>
+
+<li>
+<button onclick="showPage('issue')">
+Issue Book
+</button>
+</li>
+
+<li>
+<button onclick="showPage('returnBook')">
+Return Book
+</button>
+</li>
+
+<li>
+<button onclick="showPage('todo')">
+To-Do List
+</button>
+</li>
+
+</ul>
+
+</nav>
+
+<!-- ================= DASHBOARD ================= -->
+
+<div class="page active" id="dashboard">
+
+<h1 class="title">
+Library Dashboard
+</h1>
+
+<div class="cards">
+
+<div class="card dashboard-card">
+<h3>Total Books</h3>
+<h2 id="totalBooks">0</h2>
+</div>
+
+<div class="card dashboard-card">
+<h3>Available Books</h3>
+<h2 id="availableBooks">0</h2>
+</div>
+
+<div class="card dashboard-card">
+<h3>Issued Books</h3>
+<h2 id="issuedBooks">0</h2>
+</div>
+
+<div class="card dashboard-card">
+<h3>Pending Returns</h3>
+<h2 id="pendingReturns">0</h2>
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= LIBRARY ================= -->
+
+<div class="page" id="library">
+
+<h1 class="title">
+Library Management
+</h1>
+
+<div class="form-container">
+
+<h2>Add New Book</h2>
+
+<input
+type="text"
+id="bookTitle"
+placeholder="Book Title">
+
+<input
+type="text"
+id="bookAuthor"
+placeholder="Author Name">
+
+<input
+type="text"
+id="bookCategory"
+placeholder="Category">
+
+<button onclick="addBook()">
+Add Book
+</button>
+
+</div>
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchBook"
+placeholder="Search Book..."
+onkeyup="searchBooks()">
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Book Title</th>
+<th>Author</th>
+<th>Category</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+
+</thead>
+
+<tbody id="bookTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ================= ISSUE BOOK ================= -->
+
+<div class="page" id="issue">
+
+<h1 class="title">
+Issue Book
+</h1>
+
+<div class="form-container">
+
+<input
+type="text"
+id="studentName"
+placeholder="Student Name">
+
+<select id="issueBookSelect">
+
+<option value="">
+Select Book
+</option>
+
+</select>
+
+<label>Date of Issue</label>
+
+<input
+type="date"
+id="issueDate">
+
+<label>Expected Return Date</label>
+
+<input
+type="date"
+id="expectedReturnDate">
+
+<button onclick="issueBook()">
+Issue Book
+</button>
+
+</div>
+
+<h2 class="sub-title">
+Recently Issued Books
+</h2>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Student</th>
+<th>Book</th>
+<th>Issue Date</th>
+<th>Return Date</th>
+</tr>
+
+</thead>
+
+<tbody id="issuedTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ================= RETURN BOOK ================= -->
+
+<div class="page" id="returnBook">
+
+<h1 class="title">
+Return Book
+</h1>
+
+<div class="form-container">
+
+<input
+type="text"
+id="returnStudent"
+placeholder="Student Name">
+
+<select id="returnBookSelect">
+
+<option value="">
+Select Book
+</option>
+
+</select>
+
+<label>Return Date</label>
+
+<input
+type="date"
+id="returnDate">
+
+<button onclick="returnBook()">
+Return Book
+</button>
+
+</div>
+
+<h2 class="sub-title">
+Returned Books
+</h2>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Student</th>
+<th>Book</th>
+<th>Returned On</th>
+</tr>
+
+</thead>
+
+<tbody id="returnedTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ================= TODO LIST ================= -->
+
+<div class="page" id="todo">
+
+<h1 class="title">
+To-Do List
+</h1>
+
+<div class="form-container">
+
+<input
+type="text"
+id="taskInput"
+placeholder="Enter New Task">
+
+<button onclick="addTask()">
+Add Task
+</button>
+
+</div>
+
+<div class="todo-container">
+
+<ul id="taskList">
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>
+© 2026 S-VYASA Library Management System
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
